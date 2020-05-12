@@ -1,5 +1,9 @@
-class DockingStation
-def release_bike
+require_relative 'bike'
 
-end
+class DockingStation
+
+  def release_bike
+    return Bike.new
+  end
+
 end
