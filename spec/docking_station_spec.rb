@@ -8,10 +8,9 @@ describe DockingStation do
   end
 
   it "should release working bikes" do
-    bike = subject.release_bike
-    expect(bike).to be_working
-    # expect(subject.release_bike).to be_kind_of(Bike)
-    # expect(subject.release_bike.working?).to eq true
+   expect(subject.release_bike.working?).to eq true
+   # bike = subject.release_bike
+   # expect(bike).to be_working
   end
 
  end
