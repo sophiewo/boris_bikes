@@ -7,7 +7,7 @@ Let's go back several years, to the days when there were no Boris Bikes. Transpo
 ## Installation Instructions 
 
 ```
-$ git clone git@github.com:RichEwin/boris-bikes.git
+$ git clone
 $ cd boris-bikes
 ```
 
@@ -23,6 +23,8 @@ So that I can use a good bike,
 I'd like to see if a bike is working
 ```
 ```
-Bike <-- working? --> true/false
-DockingStation <-- release_bike --> a Bike
+  Objects  | Messages
+------------- | -------------
+docking station  | release_bike
+bike  | working?
 ```
