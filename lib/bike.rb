@@ -1,6 +1,10 @@
 class Bike
 
+  def initialize(status = "working")
+    @status = status
+  end
+
   def working?
-    return true
+    @status == "broken"
   end
 end

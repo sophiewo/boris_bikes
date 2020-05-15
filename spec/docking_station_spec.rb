@@ -20,6 +20,11 @@ describe DockingStation do
     it "should not release working bikes" do
       expect { docking_station.release_bike }.to raise_error "No bikes available"
     end
+
+    it 'should not release broken bikes' do
+      docking_station.dock(bike)
+      expect { docking_station.release_bike }.to raise_error "No working bikes available"
+    end
   end
 
   describe "#dock" do
@@ -38,10 +43,10 @@ describe DockingStation do
       expect { docking_capacity.dock(bike) }.to raise_error "dock full"
     end
 
-    it 'when you add bike, it also gives a status' do
-    bike = Bike.new
-    docking_station.dock(bike)
-    expect(docking_station.instance_variable_get(:@bike_store)).to include({name: bike, status: "working"})
-  end
+    # it 'when you add bike, it also gives a status' do
+    #   bike = Bike.new
+    #   docking_station.dock(bike)
+    #   expect(docking_station.instance_variable_get(:@bike_store)).to include({name: bike, status: "working"})
+    # end
   end
 end
