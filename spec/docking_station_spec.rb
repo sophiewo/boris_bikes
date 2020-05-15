@@ -5,6 +5,7 @@ describe DockingStation do
 
   subject(:docking_station) { described_class.new }
   subject(:bike) { described_class.new }
+  DEFAULT_CONSTANT = 20
 
   describe "#release_bike" do
     it "should respond to release_bike" do
@@ -27,9 +28,14 @@ describe DockingStation do
     end
 
     it "raise an error if docking station is full" do
-      
-     20.times { docking_station.dock(bike) }
+     DEFAULT_CONSTANT.times { docking_station.dock(bike) }
       expect { docking_station.dock(bike) }.to raise_error "dock full"
+    end
+
+    it 'has a variable capacity' do
+      docking_capacity = DockingStation.new(39)
+      39.times { docking_capacity.dock(bike) }
+      expect { docking_capacity.dock(bike) }.to raise_error "dock full"
     end
   end
 end
