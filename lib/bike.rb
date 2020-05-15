@@ -5,6 +5,6 @@ class Bike
   end
 
   def working?
-    @status == "broken"
+    @status == "working"
   end
 end

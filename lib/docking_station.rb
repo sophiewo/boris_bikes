@@ -4,7 +4,7 @@ class DockingStation
 
   DEFAULT_CAPACITY = 20
 
-  attr_reader :bike 
+  attr_reader :bike_store
 
   def initialize(capacity = DEFAULT_CAPACITY)
     @bike_store = []
@@ -13,8 +13,8 @@ class DockingStation
 
   def release_bike
     fail "No bikes available" if empty?
-    fail "No working bikes available" if @bike_store[0].working?
-    @bike_store.pop
+    fail "No working bikes available" if @bike_store[0].working? == false
+    @bike_store[0]
   end
 
   def dock(bike)

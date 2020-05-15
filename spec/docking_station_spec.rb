@@ -13,8 +13,10 @@ describe DockingStation do
     end
 
     it "should release working bikes" do
-      docking_station.dock(bike)
-      expect(docking_station.release_bike).to eq({name: bike, status: 'working'})
+      dock = docking_station
+      bike = Bike.new
+      dock.dock(bike)
+      expect(dock.release_bike).to eq(bike)
     end
 
     it "should not release working bikes" do
@@ -22,6 +24,7 @@ describe DockingStation do
     end
 
     it 'should not release broken bikes' do
+      bike = Bike.new("broken")
       docking_station.dock(bike)
       expect { docking_station.release_bike }.to raise_error "No working bikes available"
     end
